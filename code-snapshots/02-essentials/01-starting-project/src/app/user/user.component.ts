@@ -1,4 +1,4 @@
-import { Component, computed, Input, input, signal } from '@angular/core';
+import { Component, computed, EventEmitter, Input, input, Output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
 //const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length)
@@ -11,8 +11,11 @@ import { DUMMY_USERS } from '../dummy-users';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
+  @Input({required: true}) id!: string;
   //@Input({required : true}) avatar!: string;
   //@Input({required : true}) name!: string;
+  @Output() select = new EventEmitter();
+
   avatar = input.required<string>();
   name = input.required<string>();
 
@@ -25,5 +28,6 @@ export class UserComponent {
   onSelectUser() {
     //const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
     //this.selectedUser.set(DUMMY_USERS[randomIndex]);
+    this.select.emit(this.id);
   }
 }
