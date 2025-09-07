@@ -13,17 +13,24 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = signal('u1');
+  selectedUserId = 'u1';
+  //selectedUserId = signal('u1');
   //selectedUserChanged: EventEmitter<int> = new
-
+/*
   selectedUser = computed(()=>{
     const userId = this.selectedUserId();
     console.log("compute triggered " + userId);
     return DUMMY_USERS.find(user=>user.id == userId)!;
   });
+*/
+  get selectedUser()
+  {
+    return DUMMY_USERS.find(user=>user.id == this.selectedUserId)!;
+  };
 
   onSelectUser(id: string) {
     console.log('Selected ' + id);
-    this.selectedUserId.set(id);
+    //this.selectedUserId.set(id);
+    this.selectedUserId = id;
   }
 }
