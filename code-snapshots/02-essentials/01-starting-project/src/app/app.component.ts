@@ -13,7 +13,7 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = 'u1';
+  selectedUserId?: string;
   //selectedUserId = signal('u1');
   //selectedUserChanged: EventEmitter<int> = new
 /*
