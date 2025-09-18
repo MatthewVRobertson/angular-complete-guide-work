@@ -1,4 +1,4 @@
-import { Component, computed, EventEmitter, Input, input, output, Output, signal } from '@angular/core';
+import { Component, computed, EventEmitter, Input, input, InputSignal, output, Output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 import { User } from './user.model';
 
@@ -14,6 +14,7 @@ import { User } from './user.model';
 })
 export class UserComponent {
   @Input({required:true}) user! : User;
+  isSelected : InputSignal<boolean> = input.required<boolean>();
   @Output() select = new EventEmitter();
 
   //@Input({required: true}) id!: string;
