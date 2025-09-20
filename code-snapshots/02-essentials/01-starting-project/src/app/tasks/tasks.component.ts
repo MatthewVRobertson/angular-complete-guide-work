@@ -10,6 +10,7 @@ import { Task } from './task/task.model';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
+[x: string]: any;
   @Input({required: true}) selectedUser!: any;
     tasks: Task[];
 
@@ -29,5 +30,9 @@ export class TasksComponent {
 
     get selectedUserTasks() {
       return this.tasks.filter(task => task.userId === this.selectedUser.id);
+    }
+
+    onCompleteTask(taskId: number) {
+      this.tasks = this.tasks.filter(task => task.id !== taskId);
     }
 }
