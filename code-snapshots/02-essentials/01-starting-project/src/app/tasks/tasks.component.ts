@@ -46,6 +46,10 @@ export class TasksComponent {
       this.isAddingTask = false;
     }
 
+    onCancelAddTask() {
+        this.isAddingTask = false;
+    }
+
     onAddTask() {
       const newTaskId = this.tasks.length + 1;
       const newTask = Object.assign(
