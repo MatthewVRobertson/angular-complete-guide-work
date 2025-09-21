@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
-import { Task } from './task/task.model';
+import { NewTaskData, Task } from './task/task.model';
 import { NewTaskComponent } from "./new-task/new-task.component";
 
 @Component({
@@ -50,12 +50,13 @@ export class TasksComponent {
         this.isAddingTask = false;
     }
 
-    onAddTask() {
-      const newTaskId = this.tasks.length + 1;
+    onAddTask(newTaskData: NewTaskData) {
+      const newTaskId = new Date().getMilliseconds();
       const newTask = Object.assign(
-        new Task(newTaskId, 'New Task', 'Description for the new task.'),
+        new Task(newTaskId, newTaskData.title, newTaskData.summary),
         { userId: this.selectedUser.id }
       );
       this.tasks.push(newTask);
+      this.isAddingTask = false;
     }
 }
