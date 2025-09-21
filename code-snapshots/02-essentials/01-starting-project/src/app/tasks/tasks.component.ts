@@ -20,13 +20,13 @@ export class TasksComponent {
       this.tasks = [
         Object.assign(
           new Task(1, 'Design Landing Page', 'Create a responsive landing page for the new product.'),
-          { userId: 'u1' }),
+          { userId: 'u1', dueDate: '2024-12-31' }),
         Object.assign(
           new Task(2, 'Implement Authentication', 'Set up user authentication using OAuth 2.0.'),
-          { userId: 'u2' }),
+          { userId: 'u2', dueDate: '2024-12-31' }),
         Object.assign(
           new Task(3, 'Database Schema Design', 'Design the database schema for the application.'),
-          { userId: 'u3' }),
+          { userId: 'u3', dueDate: '2024-12-31' }),
       ];
     }
 
